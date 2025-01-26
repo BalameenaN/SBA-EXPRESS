@@ -5,13 +5,17 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 5000;
 const users = require("./paths/user");
+const products = require("./paths/products");
+const carts = require("./paths/carts");
 
 //body-parsing middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
 
-//Route middleware
+//Including the path files here to access it
 app.use(users);
+app.use(products);
+app.use(carts);
 
 
 //homepage
@@ -29,6 +33,12 @@ app.get("/details",(req,res)=>{
     <li>REVIEW detail</li></ul>`;
     res.send(details);
 })
+//error handling middleware which is executed when next function is passed with error as argument
+app.use((err, req, res, next) => {
+    console.log("inside error middleware");
+    res.status(err.status || 500);
+    res.json({ error: err.message });
+  });
 
 //listen function to make the server up and running
 app.listen(port,()=>{
