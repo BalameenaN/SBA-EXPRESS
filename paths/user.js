@@ -1,17 +1,21 @@
 const express = require("express");
 const router = express.Router();
+const bodyParser = require("body-parser");
 
 const users = require("../data/user");
 const error =require("../error");
+
 
 router.get("/user",(req,res)=>{
     console.log("inside /user");
     res.json(users);
 })
-.post("/user",(req,res)=>{
+.post("/user",(req,res,next)=>{
     console.log("inside / POST");
-    if(req.body.name && req.body.email && req.body.userName && req.body.phoneNo){
-        if (users.find((u) => u.username == req.body.username)) {
+    console.log(req.body.name);
+    console.log(req.body.email);
+    if(req.body.name || req.body.email || req.body.userName || req.body.phoneNo){
+        if (users.find((u) => u.userName == req.body.username)) {
             next(error(409, "Username Already Taken"));
           }
           let length = users.length;
@@ -24,7 +28,7 @@ router.get("/user",(req,res)=>{
           }
           
           users.push(user);
-          res.json(users[users.length-1]);
+          res.send("<h1>Registration complete!<h1>");
     }else next(error(400, "Insufficient Data"));
 })
 

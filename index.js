@@ -17,13 +17,23 @@ app.use(users);
 app.use(products);
 app.use(carts);
 
+//setting the view engine
+app.set("view engine", "ejs");
 
 //homepage
 app.get("/",(req,res)=>{
     console.log("inside /");
-    res.send(`<h1>Welcome to E-commerce API store</h1><p><a href="/details">CLICK HERE</a> to know the different paths</p>` );
+    res.render("home");
 });
 
+//login page using ejs view
+app.get("/login",(req,res)=>{
+    res.render("login");
+})
+
+app.get("/signup",(req,res)=>{
+    res.render("signup");
+})
 app.get("/details",(req,res)=>{
     console.log("inside /details");
     let details=`<ul>LIST OF DETAILS AVAILABLE<br>
