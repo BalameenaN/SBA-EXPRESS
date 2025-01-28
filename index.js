@@ -7,8 +7,10 @@ const port = 5000;
 const users = require("./paths/user");
 const products = require("./paths/products");
 const carts = require("./paths/carts");
+
 //using static to define public as static folder
 app.use(express.static("public"));
+
 //body-parsing middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
@@ -36,6 +38,7 @@ app.get("/login",(req,res)=>{
 app.get("/signup",(req,res)=>{
     res.render("signup");
 })
+//route to display the details available
 app.get("/details",(req,res)=>{
     console.log("inside /details");
     let details=`<ul>LIST OF DETAILS AVAILABLE<br>
@@ -45,10 +48,12 @@ app.get("/details",(req,res)=>{
     <li>REVIEW detail</li></ul>`;
     res.send(details);
 })
+//post route for login form
 app.post("/success",(req,res)=>{
     console.log("inside /success");
     res.send(`<h1 style="text-align:center;"">Logged in successfully!</h1>`);
 })
+
 //error handling middleware which is executed when next function is passed with error as argument
 app.use((err, req, res, next) => {
     console.log("inside error middleware");

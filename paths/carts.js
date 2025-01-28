@@ -9,13 +9,14 @@ router.get("/cart", (req, res) => {
     res.json(carts);
 })
 
-router.get("/cart/:id", (req, res, next) => {
+router.get("/cart/find", (req, res, next) => {
     console.log("/cart/id");
     let length = carts.length;
-    let ID = req.params.id;
+    let id =req.query.ID;
+    console.log(id);
     let filteredcart;
-    if (ID <= length) {
-        filteredcart = carts.filter((u) => u.id == ID);
+    if (id <= length) {
+        filteredcart = carts.filter((u) => u.id == id);
         res.json(filteredcart);
     }
     else next(error(404, "Cart Data not found"));

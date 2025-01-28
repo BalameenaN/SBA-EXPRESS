@@ -20,7 +20,7 @@
   * http://localhost:5000/product/1 - **Retrieving product using route parameter**
   * http://localhost:5000/product/update/1 - **Updating the price of the product for given id**
   * http://localhost:5000/cart - **getting cart information**
-  * http://localhost:5000/cart/1 - **Retrieving user information using id as query parameter**
-  -  http:// localhost:5000/cart/delete/3 -
+  * http://localhost:5000/cart/find?ID=3 - **Retrieving user information using id as query parameter**
+  -  http://localhost:5000/cart/delete/3 -
   **Deleting the given id from cart**
   
