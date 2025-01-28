@@ -7,7 +7,8 @@ const port = 5000;
 const users = require("./paths/user");
 const products = require("./paths/products");
 const carts = require("./paths/carts");
-
+//using static to define public as static folder
+app.use(express.static("public"));
 //body-parsing middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));

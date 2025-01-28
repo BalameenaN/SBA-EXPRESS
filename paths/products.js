@@ -31,7 +31,7 @@ router.patch("/product/update/:id",(req,res)=>{
           }
         });
         console.log(updatedProd);
-        if (updatedProd) res.json("Product price is updated successfully",updatedProd);
+        if (updatedProd) res.json("Product price is updated successfully");
         else next();
 
 })

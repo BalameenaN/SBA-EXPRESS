@@ -30,8 +30,13 @@ router.delete("/cart/delete/:id", (req, res) => {
             return true;
         }
     });
+    const result={
+        deleted :true,
+        deleted_item:1,
+        message:"Deleted the cart item successfully"
+    }
 
-    if (cart) res.json("deleted the cart item:");
+    if (cart) res.json(result);
     else next();
 })
 

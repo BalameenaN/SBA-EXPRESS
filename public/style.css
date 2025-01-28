@@ -1,0 +1,15 @@
+#option{
+   /* display:flex;*/
+    
+    list-style: none;
+}
+li{
+    margin: 5px 5px;
+}
+body{
+    background:rgb(238, 210, 183);
+}
+
+.heading{
+    text-align: center;
+}
