@@ -45,6 +45,10 @@ app.get("/details",(req,res)=>{
     <li>REVIEW detail</li></ul>`;
     res.send(details);
 })
+app.post("/success",(req,res)=>{
+    console.log("inside /success");
+    res.send(`<h1 style="text-align:center;"">Logged in successfully!</h1>`);
+})
 //error handling middleware which is executed when next function is passed with error as argument
 app.use((err, req, res, next) => {
     console.log("inside error middleware");

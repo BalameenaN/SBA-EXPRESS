@@ -28,7 +28,7 @@ router.get("/user",(req,res)=>{
           }
           
           users.push(user);
-          res.send("<h1>Registration complete!<h1>");
+          res.send(`<h1 style="text-align:center;">Registration complete!<h1>`);
     }else next(error(400, "Insufficient Data"));
 })
 

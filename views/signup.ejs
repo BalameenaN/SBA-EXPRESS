@@ -16,18 +16,20 @@
        
       </ul>
       <div>
-      <form action="/user" method="POST">
+      <fieldset id="outer">
+      <form id="form" action="/user" method="POST">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required><br>
         <label for="email">E-mail</label>
-        <input type="text" id="email" name="email" required>
+        <input type="text" id="email" name="email" required><br>
         <label for="userName">Username</label>
-        <input type="text" id="userName" name="userName" required>
+        <input type="text" id="userName" name="userName" required><br>
         <label for="phoneNo">PhoneNo</label>
-        <input type="number" id="phoneNo" name="phoneNo" required>
+        <input type="number" id="phoneNo" name="phoneNo" required><br>
        
         <button>Submit</button>
       </form>
+    </fieldset>
     </div>
 </body>
 </html>
