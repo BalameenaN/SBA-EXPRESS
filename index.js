@@ -31,6 +31,7 @@ app.get("/login",(req,res)=>{
     res.render("login");
 })
 
+//sign-up page using ejs
 app.get("/signup",(req,res)=>{
     res.render("signup");
 })
